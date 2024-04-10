@@ -5,6 +5,22 @@
 ![](./doc/example.svg)
 
 # Parameters
+  
+- [Twitter Post Mockup](#twitter-post-mockup)
+- [Parameters](#parameters)
+  - [theme](#theme)
+  - [username](#username)
+  - [verified](#verified)
+  - [handle](#handle)
+  - [text](#text)
+  - [hashtags](#hashtags)
+  - [date](#date)
+  - [os](#os)
+  - [retweets](#retweets)
+  - [quotes](#quotes)
+  - [likes](#likes)
+  - [height](#height)
+  - [width](#width)
 
 | Query Parameter | Default                 | Description                            | Examples               |
 | --------------- | ----------------------- | -------------------------------------- | ---------------------- |
@@ -19,10 +35,10 @@
 | quotes          | `50k`                   | Text to display for number of quote    | `100`, `1M`            |
 | likes           | `300k`                  | Text to display for number of likes    | `100`, `1M`            |
 | w               | `778`                   | Width of the svg                       | -                      |
-| h               | `575`                   | Height of the svg                      | -                      |
+| h               | `600`                   | Height of the svg                      | -                      |
 | theme           | `light`                 | Theme of the post                      | `light`, `dim`, `dark` |
 
-## Theme
+## theme
 
 `?theme=dim`
 
@@ -32,13 +48,13 @@
 
 ![](./doc/example_dark.svg)
 
-## Username
+## username
 
 `?username=Elon%20Musk`
 
 ![](./doc/example_username.svg)
 
-## Verified
+## verified
 
 `?verified=false`
 
@@ -94,15 +110,18 @@
 
 ![](./doc/example_likes.svg)
 
-## Width
+## height
 
-`?w=1000`
-
-![](./doc/example_width.svg)
-
-## Height
+**WARNING:** The bounding box of the tweet **does not adapt** to the height, but the image will use up as much space as you give it. Use this only when the image itself uses up to much space or when parts of the tweet are cut off. 
 
 `?h=1000`
 
 ![](./doc/example_height.svg)
 
+## width
+
+**WARNING:** The bounding box of the tweet **does adapt** to the width and the image will use up as much space as you give it. The height of the tweet hugs the height of the content.
+
+`?w=1000`
+
+![](./doc/example_width.svg)
