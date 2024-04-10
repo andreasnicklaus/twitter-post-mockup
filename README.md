@@ -1,12 +1,25 @@
-# Twitter Post Mockup
+<p align="center">
+  <img src="public/favicon.svg" width=100>
+</p>
+<h1 align="center">Twitter Post Mockup</h1>
 
-[https://twitter-post-mockup.vercel.app/](https://twitter-post-mockup.vercel.app/)
+<p align="center">
+  <a href="https://astro.build/">
+    <img src="https://img.shields.io/badge/Built_with-Astro-BC52EE?style=for-the-badge&logo=Astro">
+  </a>
+  <a href="https://twitter-post-mockup.vercel.app/">
+    <img src="https://img.shields.io/badge/Try_it-yourself-1da1f2?style=for-the-badge&logo=Vercel">
+  </a>
+  <a href="https://twitter-post-mockup.vercel.app/">
+    <img src="https://img.shields.io/website?url=https%3A%2F%2Ftwitter-post-mockup.vercel.app%2F&up_message=online&down_message=currently%20not%20online&style=for-the-badge&label=Service%20is">
+  </a>
+  <br/>
+  <a href="https://twitter-post-mockup.vercel.app/">https://twitter-post-mockup.vercel.app/</a>
+</p>
 
-![](./doc/example.svg)
 
-# Parameters
-  
-- [Twitter Post Mockup](#twitter-post-mockup)
+![](https://twitter-post-mockup.vercel.app/)
+
 - [Parameters](#parameters)
   - [theme](#theme)
   - [username](#username)
@@ -21,6 +34,8 @@
   - [likes](#likes)
   - [height](#height)
   - [width](#width)
+
+# Parameters
 
 | Query Parameter | Default                 | Description                            | Examples               |
 | --------------- | ----------------------- | -------------------------------------- | ---------------------- |
@@ -40,43 +55,43 @@
 
 ## theme
 
-`?theme=dim`
+`https://twitter-post-mockup.vercel.app/?theme=dim`
 
-![](./doc/example_dim.svg)
+![](https://twitter-post-mockup.vercel.app/?theme=dim)
 
-`?theme?dark`
+`https://twitter-post-mockup.vercel.app/?theme=dark`
 
-![](./doc/example_dark.svg)
+![](https://twitter-post-mockup.vercel.app/?theme=dark)
 
 ## username
 
 `?username=Elon%20Musk`
 
-![](./doc/example_username.svg)
+![](https://twitter-post-mockup.vercel.app/?username=Elon%20Musk)
 
 ## verified
 
 `?verified=false`
 
-![](./doc/example_verified.svg)
+![](https://twitter-post-mockup.vercel.app/?verified=false)
 
 ## handle
 
 `?handle=ElonMusk`
 
-![](./doc/example_handle.svg)
+![](https://twitter-post-mockup.vercel.app/?handle=ElonMusk)
 
 ## text
 
 `?text=I%20want%20to%20go%20to%20space`
 
-![](./doc/example_text.svg)
+![](https://twitter-post-mockup.vercel.app/?text=I%20want%20to%20go%20to%20space)
 
 ## hashtags
 
 `?hashtags=ootd,food`
 
-![](./doc/example_hashtags.svg)
+![](https://twitter-post-mockup.vercel.app/?hashtags=ootd,food)
 
 ## date
 
@@ -84,31 +99,31 @@
 
 `?date=This%20is%20not%20a%20valid%20date`
 
-![](./doc/example_date.svg)
+![](https://twitter-post-mockup.vercel.app/?date=This%20is%20not%20a%20valid%20date)
 
 ## os
 
 `?os=Android`
 
-![](./doc/example_os.svg)
+![](https://twitter-post-mockup.vercel.app/?os=Android)
 
 ## retweets
 
 `?retweets=1M`
 
-![](./doc/example_retweets.svg)
+![](https://twitter-post-mockup.vercel.app/?retweets=1M)
 
 ## quotes
 
 `?quotes=1M`
 
-![](./doc/example_quotes.svg)
+![](https://twitter-post-mockup.vercel.app/?quotes=1M)
 
 ## likes
 
 `?likes=1M`
 
-![](./doc/example_likes.svg)
+![](https://twitter-post-mockup.vercel.app/?likes=1M)
 
 ## height
 
@@ -116,7 +131,7 @@
 
 `?h=1000`
 
-![](./doc/example_height.svg)
+![](https://twitter-post-mockup.vercel.app/?h=1000)
 
 ## width
 
@@ -124,4 +139,4 @@
 
 `?w=1000`
 
-![](./doc/example_width.svg)
+![](https://twitter-post-mockup.vercel.app/?w=1000)
