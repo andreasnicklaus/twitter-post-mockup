@@ -1,0 +1,91 @@
+---
+import { Image } from 'astro:assets';
+import ResponseIcon from '../assets/twitter-comment-icon.svg'
+import RetweetIcon from '../assets/twitter-retweet-icon.svg'
+import LikeIcon from '../assets/twitter-like-icon.svg'
+import ShareIcon from '../assets/twitter-share-icon.svg'
+import Badge from '../assets/twitter-badge.svg'
+
+const {
+  username='anonymous',
+  verified=true,
+  handle='anonymous',
+  text='Lorem asdfasdfasdipsum dolor sit amet, consectetur adipiscing elit. Sed mollis mollis mi ut ultricies. Nullam magna ipsum, porta vel dui convallis, rutrum imperdiet eros. Aliquam erat volutpat.',
+  hashtag='youllneverfindme',
+  date='00:00 AM Jan 01, 2022',
+  os='iPhone',
+  retweets='300k',
+  quotes='50k',
+  likes='100k',
+  theme='light'
+} = Astro.props;
+
+const lightTheme = {
+  profileBlue: '#449FEE',
+  bg: '#FFFFFF',
+  text: '#0F0F0F',
+  textLight: '#676767'
+}
+const darkTheme = {
+  profileBlue: '#449FEE',
+  bg: '#010310',
+  text: '#E4E4E4',
+  textLight: '#CBCBCB'
+}
+
+const dimTheme = {
+  profileBlue: '#449FEE',
+  bg: '#121E2A',
+  text: '#E4E4E4',
+  textLight: '#CBCBCB'
+}
+
+const themeObj = theme == 'dim' ? dimTheme : (theme == 'dark' ? darkTheme : lightTheme)
+---
+
+<div id="container" style={`background-color: ${themeObj.bg};display: flex; flex-direction: column; box-shadow: 4px 4px 10px 2px #00000044; border-radius: 22px; padding: 29px 25px; margin: 5px 10px 10px 5px; font-family: Inter; font-size: 20px;`}>
+  <div id="header" style="display: flex; justify-content: space-between;">
+    <div id="profile-container" style="display: flex;">
+      <svg width="72" height="72">
+        <circle id="profile-picture" cx="36" cy="36" r="36" fill={themeObj.profileBlue}/>
+      </svg>
+      <div id="profile-info" style="display: flex; flex-direction: column; padding-top: 5px; margin-left: 10px;">
+        <p style={{margin: 0, color: themeObj.text}}>
+          <strong>{username}</strong>
+          {verified && <Image src={Badge} alt='' width={20} height={20}/>}
+        </p>
+        <p style={`margin: 0; color: ${themeObj.textLight}; font-weight: 300;`}>@{handle}</p>
+      </div>
+    </div>
+    <div id="menu" style="padding-top: 5px">
+      <svg width="26" height="6">
+        <circle cx="3" cy="3" r="3" fill="#717679"/>
+        <circle cx="13" cy="3" r="3" fill="#717679"/>
+        <circle cx="23" cy="3" r="3" fill="#717679"/>
+      </svg>
+    </div>
+  </div>
+  
+  <p id="text" style={`font-size: 28px; letter-spacing=-0.01em; color: ${themeObj.text}`}>{text}</p>
+
+  <p id="hashtag" style="margin-top: 0; color: #449FEE; font-size: 28px;">#{hashtag}</p>
+
+  <p id="meta-info" style={`margin: 0; font-size: 18px; font-weight: 300; color: ${themeObj.textLight}`}>{date} Twitter for {os}</p>
+
+  <hr style="width: 100%; margin: 20px 0px">
+  
+  <div id="community" style={`display: flex; justify-content: space-between; width: 70%; color: ${themeObj.textLight}; font-weight: 300;`}>
+    <span id="retweets"><strong style={{color: themeObj.text}}>{retweets}</strong> Retweets</span>
+    <span id="quotes"><strong style={{color: themeObj.text}}>{quotes}</strong> Quote Tweets</span>
+    <span id="likes"><strong style={{color: themeObj.text}}>{likes}</strong> Likes</span>
+  </div>
+  
+  <hr style="width: 100%; margin: 20px 0px">
+
+  <div id="footer" style="display: flex; justify-content: space-around;">
+    <Image src={ResponseIcon} alt='' width={28} height={24}/>
+    <Image src={RetweetIcon} alt='' width={31} height={31}/>
+    <Image src={LikeIcon} alt='' width={29} height={29}/>
+    <Image src={ShareIcon} alt='' width={29} height={27}/>
+  </div>
+</div>
