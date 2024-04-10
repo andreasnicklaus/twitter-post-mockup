@@ -17,6 +17,12 @@ const likes = Astro.url.searchParams.get("likes") || "300k";
 const width = parseInt(Astro.url.searchParams.get("w")) || 778;
 const height = parseInt(Astro.url.searchParams.get("h")) || 600;
 const theme = Astro.url.searchParams.get("theme") || "light";
+
+Astro.response.headers.set("Content-Type", "image/svg+xml");
+Astro.response.headers.set(
+  "Cache-Control",
+  "s-maxage=1, stale-while-revalidate"
+);
 ---
 
 <svg
