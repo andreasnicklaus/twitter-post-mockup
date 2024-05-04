@@ -1,0 +1,50 @@
+---
+import Tweet from "./tweet.astro";
+
+export const partial = true;
+const username = Astro.url.searchParams.get("username") || "John Doe";
+const verified = !(Astro.url.searchParams.get("verified") == "false");
+const handle = Astro.url.searchParams.get("handle")! || "johndoe";
+const text =
+  Astro.url.searchParams.get("text")! ||
+  "Lorem ipsum dolor sit amet, consectutuer adipiscing elti, sed diam nonummy nibh euismod tincidunt ut leoreet dolore magna aliquam erat volutpat.";
+const hashtags = Astro.url.searchParams.get("hashtags")! || "twittermockup";
+const date = Astro.url.searchParams.get("date") || "00:00 AM Jan 01, 2022";
+const os = Astro.url.searchParams.get("os") || "iPhone";
+const retweets = Astro.url.searchParams.get("retweets") || "100k";
+const quotes = Astro.url.searchParams.get("quotes") || "50k";
+const likes = Astro.url.searchParams.get("likes") || "300k";
+const width = parseInt(Astro.url.searchParams.get("w")) || 778;
+const height = parseInt(Astro.url.searchParams.get("h")) || 600;
+const theme = Astro.url.searchParams.get("theme") || "light";
+
+Astro.response.headers.set("Content-Type", "image/svg+xml");
+Astro.response.headers.set(
+  "Cache-Control",
+  "s-maxage=1, stale-while-revalidate"
+);
+---
+
+<svg
+  width={width}
+  height={height}
+  viewBox={`0 0 ${width} ${height}`}
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <foreignObject x="20" y="20" width={width - 30} height={height - 30}>
+    <Tweet
+      username={username}
+      verified={verified}
+      handle={handle}
+      text={text}
+      hashtags={hashtags}
+      date={date}
+      os={os}
+      retweets={retweets}
+      quotes={quotes}
+      likes={likes}
+      theme={theme}
+    />
+  </foreignObject>
+</svg>

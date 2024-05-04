@@ -1,50 +1,273 @@
 ---
-import Tweet from "./tweet.astro";
-
-export const partial = true;
-const username = Astro.url.searchParams.get("username") || "John Doe";
-const verified = !(Astro.url.searchParams.get("verified") == "false");
-const handle = Astro.url.searchParams.get("handle")! || "johndoe";
-const text =
-  Astro.url.searchParams.get("text")! ||
-  "Lorem ipsum dolor sit amet, consectutuer adipiscing elti, sed diam nonummy nibh euismod tincidunt ut leoreet dolore magna aliquam erat volutpat.";
-const hashtags = Astro.url.searchParams.get("hashtags")! || "twittermockup";
-const date = Astro.url.searchParams.get("date") || "00:00 AM Jan 01, 2022";
-const os = Astro.url.searchParams.get("os") || "iPhone";
-const retweets = Astro.url.searchParams.get("retweets") || "100k";
-const quotes = Astro.url.searchParams.get("quotes") || "50k";
-const likes = Astro.url.searchParams.get("likes") || "300k";
-const width = parseInt(Astro.url.searchParams.get("w")) || 778;
-const height = parseInt(Astro.url.searchParams.get("h")) || 600;
-const theme = Astro.url.searchParams.get("theme") || "light";
-
-Astro.response.headers.set("Content-Type", "image/svg+xml");
-Astro.response.headers.set(
-  "Cache-Control",
-  "s-maxage=1, stale-while-revalidate"
-);
+import "bootstrap/dist/css/bootstrap.css";
+import "bootstrap-icons/font/bootstrap-icons.min.css";
 ---
 
-<svg
-  width={width}
-  height={height}
-  viewBox={`0 0 ${width} ${height}`}
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
+<script>
+  import "bootstrap/dist/js/bootstrap.js";
+
+  const inputs = {
+    username: "username-input",
+    handle: "handle-input",
+    verified: "verified-input",
+    text: "text-input",
+    hashtags: "hashtags-input",
+    date: "date-input",
+    os: "os-input",
+    retweets: "retweets-input",
+    quotes: "quotes-input",
+    likes: "likes-input",
+    theme: "theme-input",
+  };
+
+  Object.values(inputs).forEach((id) => {
+    const inputElement = document.getElementById(id);
+    inputElement.addEventListener("input", () => updateImagePath());
+  });
+
+  function updateImagePath() {
+    const values = {};
+
+    Object.entries(inputs).forEach(([key, id]) => {
+      const value = document.getElementById(id).value;
+
+      if (key == "os" && value == "iPhone") return;
+      if (key == "theme" && value == "light") return;
+
+      if (value) values[key] = value;
+    });
+
+    const params = new URLSearchParams(values);
+    let url = window.location.origin + "/api";
+    if (Object.keys(values).length > 0) url += "?" + params.toString();
+
+    console.log(url);
+
+    const preview = document.getElementById("preview-img");
+    preview.src = url;
+
+    document.getElementById("text-output").textContent = url;
+    document.getElementById("markdown-output").textContent = `![](${url})`;
+    document.getElementById(
+      "html-output"
+    ).textContent = `<img src="${url}" alt="">`;
+  }
+
+  updateImagePath();
+</script>
+
+<div
+  class="p-4 w-100"
+  style="display: flex; flex-direction: column; align-items: center;"
 >
-  <foreignObject x="20" y="20" width={width - 30} height={height - 30}>
-    <Tweet
-      username={username}
-      verified={verified}
-      handle={handle}
-      text={text}
-      hashtags={hashtags}
-      date={date}
-      os={os}
-      retweets={retweets}
-      quotes={quotes}
-      likes={likes}
-      theme={theme}
-    />
-  </foreignObject>
-</svg>
+  <img src="/favicon.svg" alt="" width="100" />
+  <h1 class="my-4">Twitter Post Mockup Generator</h1>
+
+  <div class="row w-100">
+    <div class="col-12 col-md-6">
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="username">Username:</span>
+        <input
+          id="username-input"
+          type="text"
+          class="form-control"
+          placeholder="John Doe"
+          aria-label="Username"
+          aria-describedby="username"
+        />
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="handle">User handle:</span>
+        <input
+          id="handle-input"
+          type="text"
+          class="form-control"
+          placeholder="johndoe"
+          aria-label="handle"
+          aria-describedby="handle"
+        />
+      </div>
+
+      <div class="form-check mb-2 ms-1">
+        <input
+          id="verified-input"
+          class="form-check-input"
+          type="checkbox"
+          value=""
+          id="flexCheckDefault"
+          checked
+        />
+        <label class="form-check-label" for="flexCheckDefault"> Verified</label>
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="text">Text:</span>
+        <input
+          id="text-input"
+          type="text"
+          class="form-control"
+          placeholder="Lorem ipsum ..."
+          aria-label="text"
+          aria-describedby="text"
+        />
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="hashtags">Hashtags:</span>
+        <input
+          id="hashtags-input"
+          type="text"
+          class="form-control"
+          placeholder="twittermockup,ootd"
+          aria-label="hashtags"
+          aria-describedby="hashtags"
+        />
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="date">Date:</span>
+        <input
+          id="date-input"
+          type="text"
+          class="form-control"
+          placeholder="00:00 AM Jan 01, 2022"
+          aria-label="date"
+          aria-describedby="date"
+        />
+      </div>
+
+      <div class="input-group mb-2">
+        <label class="input-group-text" for="os">Operating System:</label>
+        <select
+          id="os-input"
+          id="os"
+          class="form-select"
+          aria-label="Operating System"
+        >
+          <option selected value="iPhone">iPhone</option>
+          <option value="Android">Android</option>
+          <option value="Windows">Windows</option>
+          <option value="macOS">macOS</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="retweets">Retweets:</span>
+        <input
+          id="retweets-input"
+          type="text"
+          class="form-control"
+          placeholder="100k"
+          aria-label="retweets"
+          aria-describedby="retweets"
+        />
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="quotes">Quotes:</span>
+        <input
+          id="quotes-input"
+          type="text"
+          class="form-control"
+          placeholder="50k"
+          aria-label="quotes"
+          aria-describedby="quotes"
+        />
+      </div>
+
+      <div class="input-group mb-2">
+        <span class="input-group-text" id="likes">Likes:</span>
+        <input
+          id="likes-input"
+          type="text"
+          class="form-control"
+          placeholder="300k"
+          aria-label="likes"
+          aria-describedby="likes"
+        />
+      </div>
+
+      <div class="input-group mb-2">
+        <label class="input-group-text" for="theme">Theme:</label>
+        <select
+          id="theme-input"
+          id="theme"
+          class="form-select"
+          aria-label="Theme"
+        >
+          <option selected value="light">Light</option>
+          <option value="dim">Dim</option>
+          <option value="dark">Dark</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-12 col-md-6">
+      <ul class="nav nav-tabs nav-justified w-100" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link active"
+            id="preview-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#preview-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="preview-tab-pane"
+            aria-selected="true">Preview</button
+          >
+        </li>
+        <li class="nav-item" role="presentation">
+          <button
+            class="nav-link"
+            id="embed-tab"
+            data-bs-toggle="tab"
+            data-bs-target="#embed-tab-pane"
+            type="button"
+            role="tab"
+            aria-controls="embed-tab-pane"
+            aria-selected="false">Embed (Markdown, HTML, ...)</button
+          >
+        </li>
+      </ul>
+      <div class="tab-content w-100 p-2" id="myTabContent">
+        <div
+          class="tab-pane fade show active"
+          id="preview-tab-pane"
+          role="tabpanel"
+          aria-labelledby="preview-tab"
+          tabindex="0"
+        >
+          <img id="preview-img" src="/api" alt="" style="width: 100%" />
+        </div>
+        <div
+          class="tab-pane fade"
+          id="embed-tab-pane"
+          role="tabpanel"
+          aria-labelledby="embed-tab"
+          tabindex="0"
+        >
+          <div class="input-group mb-2">
+            <span class="input-group-text" id="link">Link:</span>
+            <code id="text-output" class="form-control"></code>
+          </div>
+          <div class="input-group mb-2">
+            <span class="input-group-text" id="markdown">Markdown:</span>
+            <code id="markdown-output" class="form-control"></code>
+          </div>
+          <div class="input-group mb-2">
+            <span class="input-group-text" id="html">HTML:</span>
+            <code id="html-output" class="form-control" aria-describedby="html"
+            ></code>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr />
+  <a href="https://github.com/andreasnicklaus/twitter-post-mockup" class="mt-4">
+    <i class="bi bi-github"></i>
+    View source on Github
+  </a>
+</div>

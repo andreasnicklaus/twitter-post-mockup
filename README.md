@@ -18,7 +18,7 @@
 </p>
 
 
-![](https://twitter-post-mockup.vercel.app/)
+![](https://twitter-post-mockup.vercel.app/api)
 
 - [Parameters](#parameters)
   - [theme](#theme)
@@ -55,43 +55,43 @@
 
 ## theme
 
-`https://twitter-post-mockup.vercel.app/?theme=dim`
+`https://twitter-post-mockup.vercel.app/api?theme=dim`
 
-![](https://twitter-post-mockup.vercel.app/?theme=dim)
+![](https://twitter-post-mockup.vercel.app/api?theme=dim)
 
-`https://twitter-post-mockup.vercel.app/?theme=dark`
+`https://twitter-post-mockup.vercel.app/api?theme=dark`
 
-![](https://twitter-post-mockup.vercel.app/?theme=dark)
+![](https://twitter-post-mockup.vercel.app/api?theme=dark)
 
 ## username
 
 `?username=Elon%20Musk`
 
-![](https://twitter-post-mockup.vercel.app/?username=Elon%20Musk)
+![](https://twitter-post-mockup.vercel.app/api?username=Elon%20Musk)
 
 ## verified
 
 `?verified=false`
 
-![](https://twitter-post-mockup.vercel.app/?verified=false)
+![](https://twitter-post-mockup.vercel.app/api?verified=false)
 
 ## handle
 
 `?handle=ElonMusk`
 
-![](https://twitter-post-mockup.vercel.app/?handle=ElonMusk)
+![](https://twitter-post-mockup.vercel.app/api?handle=ElonMusk)
 
 ## text
 
 `?text=I%20want%20to%20go%20to%20space`
 
-![](https://twitter-post-mockup.vercel.app/?text=I%20want%20to%20go%20to%20space)
+![](https://twitter-post-mockup.vercel.app/api?text=I%20want%20to%20go%20to%20space)
 
 ## hashtags
 
 `?hashtags=ootd,food`
 
-![](https://twitter-post-mockup.vercel.app/?hashtags=ootd,food)
+![](https://twitter-post-mockup.vercel.app/api?hashtags=ootd,food)
 
 ## date
 
@@ -99,31 +99,31 @@
 
 `?date=This%20is%20not%20a%20valid%20date`
 
-![](https://twitter-post-mockup.vercel.app/?date=This%20is%20not%20a%20valid%20date)
+![](https://twitter-post-mockup.vercel.app/api?date=This%20is%20not%20a%20valid%20date)
 
 ## os
 
 `?os=Android`
 
-![](https://twitter-post-mockup.vercel.app/?os=Android)
+![](https://twitter-post-mockup.vercel.app/api?os=Android)
 
 ## retweets
 
 `?retweets=1M`
 
-![](https://twitter-post-mockup.vercel.app/?retweets=1M)
+![](https://twitter-post-mockup.vercel.app/api?retweets=1M)
 
 ## quotes
 
 `?quotes=1M`
 
-![](https://twitter-post-mockup.vercel.app/?quotes=1M)
+![](https://twitter-post-mockup.vercel.app/api?quotes=1M)
 
 ## likes
 
 `?likes=1M`
 
-![](https://twitter-post-mockup.vercel.app/?likes=1M)
+![](https://twitter-post-mockup.vercel.app/api?likes=1M)
 
 ## height
 
@@ -131,7 +131,7 @@
 
 `?h=1000`
 
-![](https://twitter-post-mockup.vercel.app/?h=1000)
+![](https://twitter-post-mockup.vercel.app/api?h=1000)
 
 ## width
 
@@ -139,4 +139,4 @@
 
 `?w=1000`
 
-![](https://twitter-post-mockup.vercel.app/?w=1000)
+![](https://twitter-post-mockup.vercel.app/api?w=1000)

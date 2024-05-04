@@ -11,6 +11,9 @@
   },
   "dependencies": {
     "@astrojs/vercel": "^7.5.2",
-    "astro": "^4.5.17"
+    "@vercel/analytics": "^1.2.2",
+    "astro": "^4.5.17",
+    "astro-bootstrap": "^0.6.2",
+    "bootstrap-icons": "^1.11.3"
   }
 }
