@@ -29,6 +29,9 @@ import "bootstrap-icons/font/bootstrap-icons.min.css";
     const values = {};
 
     Object.entries(inputs).forEach(([key, id]) => {
+      if (key == "verified" && !document.getElementById(id).checked) {
+        values[key] = "false";
+      }
       const value = document.getElementById(id).value;
 
       if (key == "os" && value == "iPhone") return;
