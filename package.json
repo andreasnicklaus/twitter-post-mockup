@@ -10,10 +10,10 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "^11.0.17",
-    "@vercel/analytics": "^2.0.1",
+    "@astrojs/vercel": "11.0.17",
+    "@vercel/analytics": "2.0.1",
     "astro": "7.4.2",
-    "astro-bootstrap": "^0.7.0",
-    "bootstrap-icons": "^1.13.2"
+    "astro-bootstrap": "0.7.2",
+    "bootstrap-icons": "1.13.2"
   }
 }
