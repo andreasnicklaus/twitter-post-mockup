@@ -10,9 +10,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/vercel": "11.0.18",
+    "@astrojs/vercel": "11.0.20",
     "@vercel/analytics": "2.0.1",
-    "astro": "7.4.5",
+    "astro": "7.4.7",
     "astro-bootstrap": "0.7.2",
     "bootstrap-icons": "1.13.2"
   }
