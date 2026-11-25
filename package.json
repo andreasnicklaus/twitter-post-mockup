@@ -12,7 +12,7 @@
   "dependencies": {
     "@astrojs/vercel": "11.0.22",
     "@vercel/analytics": "2.0.1",
-    "astro": "7.4.12",
+    "astro": "7.4.13",
     "astro-bootstrap": "0.7.2",
     "bootstrap-icons": "1.13.2"
   }
